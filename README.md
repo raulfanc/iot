@@ -19,9 +19,10 @@ The local deployment uses a Raspberry Pi 4 with a 32-bit operating system, and D
 3. Mosquitto (MQTT broker)
 4. Node-red (flow control)
 5. InfluxDB (light weight DB for IOT)
-6. Grafana (visualization to present data)
-7. Raspberry Pi connect to home Wi-Fi
-8. encrypted remote access to Raspberry Pi (firewall, static IP, VPN, etc.)
+6. Grafana (visualization to present data) 
+7. Precontainer (Docker GUI)
+8. Raspberry Pi connect to home Wi-Fi 
+9. Encrypted remote access to Raspberry Pi (firewall, static IP, VPN, etc.)
 
 ![](pictures/Pasted%20image%2020230604234800.png)
 
@@ -29,7 +30,10 @@ The local deployment uses a Raspberry Pi 4 with a 32-bit operating system, and D
 
 #### Deployment Steps
 
-1. Clone the repository to your local Raspberry Pi 4 system.
+1. Clone the repository to the local Raspberry Pi 4 system.
+```bash
+git clone https://github.com/raulfanc/iot.git
+```
 2. Navigate to the directory where the docker-compose.yml file is located.
 3. Run the following command to start the Docker containers: `docker-compose up -d`
 4. Access Node-RED, InfluxDB, Mosquitto, and Grafana on their respective ports.
