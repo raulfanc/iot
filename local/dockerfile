@@ -1,0 +1,8 @@
+# Use the official Node-RED image as base
+FROM nodered/node-red:latest
+
+# Switch to the node-red user
+USER node-red
+
+# Install Node-RED dependencies
+RUN npm install @ppatierno/node-red-node-sensortag

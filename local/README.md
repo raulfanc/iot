@@ -50,8 +50,9 @@ services:
       - ./node-red/data:/data
     ports:
       - 1880:1880
+    
   influxdb:
-    image: influxdb:latest
+    image: influxdb:18
     volumes:
       - ./influxdb:/var/lib/influxdb
     ports:
@@ -101,3 +102,24 @@ ff02::2         ip6-allrouters
 127.0.1.1       rex
 ```
 
+set up cc2650 TI sensortag with node-red:
+- install nodejs
+```bash
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+- and then refer to [this guide](/cloud/Ti%20Sensor_Node-Red.md) for the rest of the setup
+
+---
+## Challenges:
+Running Node-RED directly on the host environment can indeed simplify some aspects of the development process, particularly when dealing with hardware interfacing and some native dependencies. Direct hardware access is straightforward, and you don't need to manage Docker volumes for persistent data.
+
+However, using Docker also has significant benefits:
+
+1. Isolation: Docker provides a great level of isolation, which means that the Node-RED and its dependencies won't interfere with the system and other applications.
+
+2. Portability: If you ever need to move your application to another system, Docker makes this process straightforward. The application and all its dependencies are in the Docker image, so it will run the same regardless of the host system.
+
+3. Version control and reproducibility: Docker allows for precise control over the environment your application runs in. You can specify versions of Node-RED, Node.js, and any other dependencies. This can make your application more stable and predictable.
+
+4. Microservices architecture: If your project grows to include other services, Docker makes it easy to manage these services independently. This is especially true if you use a tool like Docker Compose.

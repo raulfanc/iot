@@ -3,30 +3,25 @@ services:
   mosquitto:
     image: eclipse-mosquitto:latest
     volumes:
+      - ./mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
       - ./mosquitto/data:/mosquitto/data
       - ./mosquitto/log:/mosquitto/log
     ports:
-      - "1883:1883"
-      - "9001:9001"
-    restart: unless-stopped
-  node-red:
-    image: nodered/node-red:latest
-    volumes:
-      - ./node-red/data:/data
-    ports:
-      - "1880:1880"
-    restart: unless-stopped
+      - 1883:1883
+      - 9001:9001
+
   influxdb:
     image: influxdb:1.8
     volumes:
-      - ./influxdb/data:/var/lib/influxdb
+      - ./influxdb:/var/lib/influxdb
     ports:
-      - "8086:8086"
-    restart: unless-stopped
+      - 8086:8086
+
   grafana:
-    image: grafana/grafana
+    image: grafana/grafana:latest
     volumes:
-      - ./grafana/data:/var/lib/grafana
+      - ./grafana:/var/lib/grafana
     ports:
-      - "3000:3000"
-    restart: unless-stopped
+      - 3000:3000
+    depends_on:
+      - influxdb
