@@ -7,6 +7,7 @@ This project makes use of best practices in IoT and Cloud deployments, including
 ---
 
 ## Local Deployment (For Testing)
+Readings should be sampled and stored in a database using json format and include metadata such as: timestamp, signal-readings, location, device-label. Readings should be available publicly over the internet.
 
 ### System Architecture
 
@@ -27,6 +28,10 @@ The local deployment uses a Raspberry Pi 4 with a 32-bit operating system, and D
 ![](pictures/Pasted%20image%2020230604234800.png)
 
 ![](pictures/Pasted%20image%2020230604234813.png)
+
+![](pictures/Pasted%20image%2020230622205121.png)
+
+![](pictures/Pasted%20image%2020230622210745.png)
 
 #### Deployment Steps
 
@@ -73,5 +78,3 @@ Contributions are welcome! Please feel free to submit a pull request.
 ## License
 
 This project is licensed under the MIT License - see the LICENSE.md file for details.
-
----
